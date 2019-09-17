@@ -1,0 +1,71 @@
+{% extends "sarklo/layout.html" %}
+{% load static %}
+{% block content %}
+
+{% block style %}
+    <link rel="stylesheet" type ="text/css" href="{% static 'sarklo/KNJIGE.css' %}">
+{% endblock %}
+
+
+
+    <!--<div style="display:inline-block; width: 85%;">-->
+    <div style="width: 85%; display: inline-block; position: relative; left: 35px; top: 15px;">
+        <h2 style="color: purple;">Osnovna Skola</h2>
+        <ul class="razredi">
+            <li><a href="{% url 'osn_1_razred' %}">1. razred</li></a>
+            <li><a href="{% url 'osn_2_razred' %}">2. razred</li></a>
+            <li><a href="{% url 'osn_3_razred' %}">3. razred</li></a>
+            <li><a href="{% url 'osn_4_razred' %}">4. razred</li></a>
+            <li><a href="{% url 'osn_5_razred' %}">5. razred</li></a>
+            <li><a href="{% url 'osn_6_razred' %}">6. razred</li></a>
+            <li><a href="{% url 'osn_7_razred' %}">7. razred</li></a>
+            <li><a href="{% url 'osn_8_razred' %}">8. razred</li></a>
+        </ul>
+        <h2 style="color: purple;">Srednja Skola</h2>
+        <ul class="razredi">
+            <li><a href="{% url 'sred_1_razred' %}">1. razred</li></a>
+            <li><a href="{% url 'sred_2_razred' %}">2. razred</li></a>
+            <li><a href="{% url 'sred_3_razred' %}">3. razred</li></a>
+            <li><a href="{% url 'sred_4_razred' %}">4. razred</li></a>
+        </ul>
+    </div><br><br><br>
+                      
+    <div style="display:inline-block; width: 82%; margin-left: 35px;">
+        {% for oglas in oglasi %}
+            <div style="width: 320px; height: 470px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 35px; margin-bottom: 35px;">
+                {% if oglas.slika %}
+                    <div style="width: 320px; height: 300px;">
+                        <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
+                    </div>
+                {% endif %}
+                <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+                <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+                <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+                <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+
+            </div>  
+        {% endfor %}
+    </div>
+            <div style="text-align: center">
+        {% if oglasi.has_previous %}
+            <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Prva strana</a>
+            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Prethodna strana</a>
+        {% endif %}
+            
+        {% for num in oglasi.paginator.page_range %}
+            {% if oglasi.number == num %}
+                {% if oglasi.has_previous or oglasi.has_next %}
+                    <strong style="text-decoration: none; font-size: 14pt; border:1px solid blue">{{ num }}</strong>
+                {% endif %}
+            {% elif num > oglasi.number|add:'-3' and oglas.number|add:'3' > num %}
+                {{ num }}
+            {% endif %}
+        {% endfor %}
+        {% if oglasi.has_next %}
+            
+            <a href="?page={{ oglasi.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Sledeca strana</a>
+            <a href="?page={{ oglasi.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Poslednja strana</a>
+        {% endif %}
+    </div>
+
+{% endblock content %}

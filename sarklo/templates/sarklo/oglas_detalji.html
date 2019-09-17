@@ -1,0 +1,17 @@
+{% extends "sarklo/layout.html" %}
+{% load static %}
+{% block content %}
+        
+    <div style="width: 600px; height: 700px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 75px; margin-bottom: 50px; margin-top: 80px;">
+        {% if oglas.slika %}
+            <div style="width: 320px; height: 300px;">
+                <img src='{{ oglas.slika.url }}' style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
+            </div>
+        {% endif %}
+        <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+        <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+        <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+        <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+    </div>
+        
+{% endblock content %}

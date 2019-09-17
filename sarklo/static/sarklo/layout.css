@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border-top: 3px solid green; 
+    border-left: 3px solid green; 
+    border-right: 3px solid green; 
+    border-bottom: hidden;
+    overflow: auto;
+}
+
+#div1 {
+    height: 100px;
+    float: left;
+}
+
+#div2 {
+    margin-left: 20px;
+    height:100px;
+    float: left;
+}
+
+#logo {
+    width:80px; 
+    height: 80px; 
+    float: left; 
+    left: 50px; 
+    top: 20px;
+}
+#Subtitle {
+    position: relative;
+    bottom:20px;
+}
+
+.navbar {
+    border: 3px solid blue; 
+    background-color: gray; 
+    overflow: hidden;     
+}
+
+.knjige {
+    overflow: hidden; 
+    float:left; 
+    background-color: white;
+    margin: 6px 6px 0px 20px;  
+}
+
+.pocetna {
+    overflow: hidden; 
+    float:left; 
+    background-color: white;
+    margin: 6px 6px 0px 20px;
+    padding: 4px 0px;
+}
+    
+.pocetna a {
+    border:none; 
+    font-size: 13pt;
+    padding: 4px 6px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    color: purple; 
+    text-decoration: none;
+}
+    
+
+a.knjige_dugme {
+    border:none; 
+    font-size: 13pt;
+    padding: 4px 6px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    color: purple;
+    text-decoration: none; 
+}
+
+.knjige_linkovi {
+    display: none; 
+    position: absolute; 
+    z-index: 1;
+    min-width: 160px;
+    background-color: pink;
+}
+
+.knjige_linkovi:hover .knjige_dugme {
+    background-color: red;
+}
+
+.knjige_linkovi a {
+    float:none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+}
+
+.knjige_linkovi a:hover {
+    background-color: #ddd;
+}
+
+.knjige:hover .knjige_linkovi {
+    display: block;
+}
+
+.kontakt {
+    background-color: #ddd;
+    margin: 5px;
+    text-align: center;
+    width: 100px;
+    position: absolute;
+    left: 50px;
+}
+.kontakt .kontakt_dugme {
+    color: purple;
+    float:none;
+    text-align: center;
+    border: none;
+    font-size: 13pt;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.kontakt_nacini {
+    display: none; 
+    position: absolute; 
+    z-index: 1;
+    background-color: pink;
+}
+.kontakt_nacini:hover .kontakt_dugme {
+    background-color: pink;
+}
+
+.kontakt_nacini p {
+    float:none;
+    color: black;
+    padding: 2px 6px;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+}
+
+.kontakt_nacini p:hover {
+    background-color: #ddd;
+}
+
+.kontakt:hover .kontakt_nacini {
+    display: block;
+}

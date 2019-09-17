@@ -1,0 +1,22 @@
+{% extends "sarklo/layout.html" %}
+{% load static %}
+{% block content %}
+
+<!--<div style="display:inline-block; width: 85%;">-->
+    <h1 style="width: 85%; display: inline-block; position: relative; left: 35px; top: 15px; color: purple"></h1><br><br>
+    <!--<div style=" margin-left: 20px; border: 1px solid black; width:%; overflow: hidden;">-->
+        {% for oglas in oglasi %}
+            <div style="width: 320px; height: 440px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 35px; margin-bottom: 35px;">
+                {% if oglas.slika %}
+                    <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;"><br>
+                {% endif %}
+                <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+                <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+                <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+            </div>  
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

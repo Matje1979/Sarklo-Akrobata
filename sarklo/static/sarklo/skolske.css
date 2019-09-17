@@ -1,0 +1,29 @@
+
+a {
+    text-decoration: none;
+}
+}
+.sadrzaj h2 {
+    width: 100%;
+}
+
+.naslov {
+    display: block;
+    width: 100%;
+}
+
+.Matematika {
+    overflow: hidden;
+   
+}
+
+.oglas {
+    float: left;
+    width: 22%;
+    border:1px solid black;
+}
+
+img {
+    width: 150px;
+    height: 200px;
+}

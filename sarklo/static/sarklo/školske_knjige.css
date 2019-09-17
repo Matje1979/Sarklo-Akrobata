@@ -1,0 +1,22 @@
+.sadrzaj h2 {
+    width: 100%;
+}
+
+.naslov {
+    width: 100%;
+}
+
+.Matematika {
+    overflow: auto;
+}
+
+.Matematika div {
+    float: left;
+    width: 24%;
+    border:1px solid black;
+}
+
+img {
+    width: 150px;
+    height: 200px;
+}
