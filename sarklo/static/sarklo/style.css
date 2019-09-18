@@ -41,6 +41,14 @@ header {
     background-color: white;
     margin: 6px 6px 0px 20px;  
 }
+
+.knjigex {
+    border-radius: 2px;
+    overflow: hidden; 
+    float:left; 
+    background-color: gray;
+    margin: 6px 6px 0px 20px;  
+}
     
     
 .pocetna {

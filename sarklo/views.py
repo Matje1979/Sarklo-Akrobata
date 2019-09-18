@@ -33,8 +33,9 @@ def index(request):
                 paginator = Paginator(oglasi, 6)
                 page = request.GET.get('page')
                 oglasi = paginator.get_page(page)
-                
-                context = {'oglasi': oglasi}
+                current_page = 'index'
+            
+                context = {'oglasi': oglasi, 'current_page': current_page}
                 
                 return render(request, "sarklo/index.html", context)
     return render(request, "sarklo/index.html")
@@ -124,7 +125,24 @@ def odeca_muska(request):
             query_list = Oglas.objects.filter(kategorija = 'OM')
             context = {'oglasi': query_list }
             return render(request, "sarklo/odeca_muska.html", context)
+            
+def tehnika(request):
+    queryset_list = Oglas.objects.all().order_by('-date')
+    query = request.GET.get('q')
     
+    if query:
+        queryset_list = queryset_list.filter(naslov = query)
+        if queryset_list:
+             context = {'oglasi': queryset_list}
+             return render(request, "sarklo/rezultati_pretrage.html", context)
+        else:
+            return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+    else:
+        query_list = Oglas.objects.filter(kategorija = 'TE')
+        current_page = 'tehnika'
+        context = {'oglasi': query_list, 'current_page': current_page }
+        return render(request, "sarklo/odeca_muska.html", context)
+
 def osn_1_razred(request):
         query_list = Oglas.objects.filter(kategorija = 'KS')
         razred = "prvi razred osnovne skole:"

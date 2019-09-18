@@ -23,7 +23,7 @@
     <div style="text-align: center">
         {% if oglasi.has_previous %}
             <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Prva strana</a>
-            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 2px; padding: 2px">">Prethodna strana</a>
+            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 2px; padding: 2px">Prethodna strana</a>
         {% endif %}
             
         {% for num in oglasi.paginator.page_range %}
