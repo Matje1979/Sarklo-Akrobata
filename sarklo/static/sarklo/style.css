@@ -1,9 +1,10 @@
 header {
-    border: 3px solid green; 
-    overflow: auto;
+    overflow: hidden;
+    width: 100%
 }
 
 #div1 {
+    padding-left: 20px;
     height: 100px;
     float: left;
 }
@@ -29,10 +30,12 @@ header {
 .navbar {
     border: 3px solid blue; 
     background-color: gray; 
-    overflow: hidden;     
+    overflow: hidden;  
+    width: 100%;   
 }
 
 .knjige {
+    border-radius: 2px;
     overflow: hidden; 
     float:left; 
     background-color: white;
@@ -40,7 +43,10 @@ header {
 }
     
     
-
+.pocetna {
+    display: inline;
+    float: left;
+}
 .knjige .knjige_dugme {
    
     font-size: 13pt;
@@ -49,7 +55,9 @@ header {
     font-family: inherit;
     margin: 0;
     color: purple; 
+    float: left;
 }
+
 
 .knjige_linkovi {
     display: none; 
@@ -61,6 +69,16 @@ header {
 
 .knjige_linkovi:hover .knjige_dugme {
     background-color: red;
+}
+
+.knjige a {
+    border-radius: 3px;
+    display: block;
+    text-decoration: none;
+    font-size: 13pt;
+    padding: 4px 6px;
+    margin: 0;
+    color: purple;
 }
 
 .knjige_linkovi a {
@@ -88,8 +106,12 @@ header {
     position: absolute;
     left: 50px;
     border: 1px doted black;
+    border-radius: 2px;
+
 }
 .kontakt .kontakt_dugme {
+    display: block;
+    float: left;
     color: purple;
     float:none;
     text-align: center;

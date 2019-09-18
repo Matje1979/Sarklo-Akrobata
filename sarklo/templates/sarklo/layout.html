@@ -36,12 +36,12 @@
   </header>
   <div class="navbar">
     <div class="knjige">
-      <a href="/" style="decoration: none;font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Početna</a>
+      <a href="/" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Početna</a>
     </div>
     <div class="knjige">
       <div>
-          <button class="knjige_dugme">Knjige</button>
-          <img src="{% static 'Sarklo\caret-down.png' %}" style="width: 10px; height: 8px;"/>
+          <div class="knjige_dugme">Knjige</div>
+          <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
       </div>
       <div class="knjige_linkovi">
         <a id="link1" href="/skolske">Skolske</a>
@@ -50,8 +50,8 @@
     </div>
     <div class="knjige">
       <div>
-        <button class="knjige_dugme">Odeća</button>
-        <img src="{% static 'Sarklo\caret-down.png' %}" style="width: 10px; height: 8px;"/>
+        <div class="knjige_dugme">Odeća</div>
+        <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
       </div>
       <div class="knjige_linkovi">
         <a href="{% url 'shop-odeca-muska' %}">Muška</a>
@@ -60,24 +60,24 @@
     </div>
     <div class="knjige">
       <div>
-        <button class="knjige_dugme">Obuća</button>
-        <img src="{% static 'Sarklo\caret-down.png' %}" style="width: 10px; height: 8px;"/>
+        <div class="knjige_dugme">Obuća</div>
+        <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
       </div>
       <div class="knjige_linkovi">
         <a href="">Muška</a>
         <a href="">Zenska</a>
       </div>
     </div>
-    <div class="pocetna" >
+    <div class="knjige" >
       <a href='#'>Tehnika</a>
     </div>
-    <div class="pocetna">
+    <div class="knjige">
       <a href="#">Igračke</a>
     </div>
-    <div class="pocetna">
+    <div class="knjige">
       <a href="/">Rukotvorine</a>
     </div>
-    <div class="pocetna">
+    <div class="knjige">
       <a href="/komentari">Komentari</a>
     </div>
     <div style=" float:right; margin-right:50px; margin-top:10px; margin-bottom: 10px;">
@@ -95,6 +95,7 @@
     </ul><br>
     <div class="kontakt">
       <button class="kontakt_dugme">Kontakt</button>
+      <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
       <div class="kontakt_nacini">
         <p style="text-align: center; color: purple; font: cambria; font-size: 14pt;"><span>Telefon:</span><br>064-460-5555</p>
         <p style="text-align: center; color: purple; font: cambria; font-size: 12pt;"><span>Email:</span><br>pedja.matijevic<br>1979<br>@gmail.com</p>                                                                                                                          
