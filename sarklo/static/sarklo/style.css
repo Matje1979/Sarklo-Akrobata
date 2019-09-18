@@ -63,7 +63,7 @@ header {
     display: none; 
     position: absolute; 
     z-index: 1;
-    min-width: 160px;
+    min-width: fit-content;
     background-color: pink;
 }
 
@@ -102,7 +102,7 @@ header {
     background-color: #ddd;
     margin: 5px;
     text-align: center;
-    width: 100px;
+    width: 120px;
     position: absolute;
     left: 50px;
     border: 1px doted black;
@@ -113,13 +113,12 @@ header {
     display: block;
     float: left;
     color: purple;
-    float:none;
     text-align: center;
     border: none;
     font-size: 13pt;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
+    margin-left: 20px;
 }
 
 .kontakt_nacini {
@@ -155,11 +154,12 @@ header {
 }
 .registration {
     margin-top: 80px;
-    margin-left: 30px;
+    margin-left: 40px;
     width: 130px;
     padding-top: 20px;
     padding-bottom: 20px;
     border:1px dotted white;
+    border-radius: 1px;
 }
 .registration a {
     text-align: center;
@@ -176,5 +176,6 @@ ul.razredi li {
 .paginator a {
     display: inline;
     text-align: center;
+    border-radius: 2px;
 }
     

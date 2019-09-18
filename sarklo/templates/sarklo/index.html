@@ -22,21 +22,21 @@
     </div>
     <div style="text-align: center">
         {% if oglasi.has_previous %}
-            <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Prva strana</a>
-            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Prethodna strana</a>
+            <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Prva strana</a>
+            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 2px; padding: 2px">">Prethodna strana</a>
         {% endif %}
             
         {% for num in oglasi.paginator.page_range %}
             {% if oglasi.number == num %}
-                <strong style="text-decoration: none; font-size: 14pt; border:1px solid blue">{{ num }}</strong>
+                <strong style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">{{ num }}</strong>
             {% elif num > oglasi.number|add:'-3' and oglas.number|add:'3' > num %}
                 {{ num }}
             {% endif %}
         {% endfor %}
         {% if oglasi.has_next %}
             
-            <a href="?page={{ oglasi.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Sledeca strana</a>
-            <a href="?page={{ oglasi.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue">Poslednja strana</a>
+            <a href="?page={{ oglasi.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Sledeca strana</a>
+            <a href="?page={{ oglasi.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Poslednja strana</a>
         {% endif %}
     </div>
 {% endblock content %}
