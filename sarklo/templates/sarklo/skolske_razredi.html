@@ -9,20 +9,37 @@
 
 
     <!--<div style="display:inline-block; width: 85%;">-->
-    <div style="width: 85%; display: inline-block; position: relative; left: 35px; top: 15px;">
-        <h2 style="color: purple;">Udzbenici za {{ razred }}</h2>
-            </div><br><br><br>
+     <div style="width: 85%; display: inline-block; position: relative; left: 35px; top: 15px;">
+        <h2 style="color: purple; text-align: center;">Osnovna Skola</h2>
+        <ul class="razredi" style="text-align: center;">
+            <li><a href="{% url 'osn_1_razred' %}">1. razred</li></a>
+            <li><a href="{% url 'osn_2_razred' %}">2. razred</li></a>
+            <li><a href="{% url 'osn_3_razred' %}">3. razred</li></a>
+            <li><a href="{% url 'osn_4_razred' %}">4. razred</li></a>
+            <li><a href="{% url 'osn_5_razred' %}">5. razred</li></a>
+            <li><a href="{% url 'osn_6_razred' %}">6. razred</li></a>
+            <li><a href="{% url 'osn_7_razred' %}">7. razred</li></a>
+            <li><a href="{% url 'osn_8_razred' %}">8. razred</li></a>
+        </ul>
+        <h2 style="color: purple; text-align: center;">Srednja Skola</h2>
+        <ul class="razredi" style="text-align: center;">
+            <li><a href="{% url 'sred_1_razred' %}">1. razred</li></a>
+            <li><a href="{% url 'sred_2_razred' %}">2. razred</li></a>
+            <li><a href="{% url 'sred_3_razred' %}">3. razred</li></a>
+            <li><a href="{% url 'sred_4_razred' %}">4. razred</li></a>
+        </ul>
+    </div><br><br><br>
     <!--<div style=" margin-left: 20px; border: 1px solid black; width:%; overflow: hidden;">-->
-        {% for oglas in oglasi %}
-            <div style="width: 320px; height: 440px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 35px; margin-bottom: 35px;">
-                {% if oglas.slika %}
-                    <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;"><br>
-                {% endif %}
-                <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
-                <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
-                <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
-            </div>  
-        {% endfor %}
+    {% for oglas in oglasi %}
+        <div style="width: 320px; height: 440px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 35px; margin-bottom: 35px;">
+            {% if oglas.slika %}
+                <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;"><br>
+            {% endif %}
+            <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+            <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+            <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+        </div>  
+    {% endfor %}
 
 
 

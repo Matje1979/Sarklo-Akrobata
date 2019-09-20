@@ -1,14 +1,16 @@
 {% extends 'sarklo/layout.html' %}
+{% load static %}
 
-
-<div style="width=30%; text-align: center; margin: auto auto;">
 {% block content %} 
+<div style="width=30%; text-align: center; margin: auto auto;">
+
 {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p
+    <p>{{ post.content }}</p>
     <hr>{{ post.author }}</hr>
     <p>{{ post.date_posted }}</p>
 {% endfor %}
-{% endblock %}  
 </div>
+{% endblock %}  
+
 

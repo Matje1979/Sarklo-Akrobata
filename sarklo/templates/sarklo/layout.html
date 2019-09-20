@@ -41,57 +41,115 @@
           </div>
       {% elif current_page != "index" %}
           <div class="knjige">
-              <a href="/" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Početna</a>
+            <a href="/" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Početna</a>
           </div>
       {% endif %}
-    <div class="knjige">
-      <div>
-          <div class="knjige_dugme">Knjige</div>
-          <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
-      </div>
-      <div class="knjige_linkovi">
-        <a href="/skolske">Skolske</a>
-        <a href="{% url 'shop-beletristika' %}">Beletristika</a>
-      </div>
-    </div>
-    <div class="knjige">
-      <div>
-        <div class="knjige_dugme">Odeća</div>
-        <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
-      </div>
-      <div class="knjige_linkovi">
-        <a href="{% url 'shop-odeca-muska' %}">Muška</a>
-        <a href="{% url 'shop-odeca-zenska' %}">Zenska</a>
-      </div>
-    </div>
-    <div class="knjige">
-      <div>
-        <div class="knjige_dugme">Obuća</div>
-        <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
-      </div>
-      <div class="knjige_linkovi">
-        <a href="">Muška</a>
-        <a href="">Zenska</a>
-      </div>
-    </div>
+      {% if current_page == "knjige" %}
+        <div class="knjigex">
+          <div>
+            <div class="knjige_dugme">Knjige</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="/skolske">Skolske</a>
+            <a href="{% url 'shop-beletristika' %}">Beletristika</a>
+          </div>
+        </div>
+      {% elif current_page != "knjige" %}
+        <div class="knjige">
+          <div>
+            <div class="knjige_dugme">Knjige</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="/skolske">Skolske</a>
+            <a href="{% url 'shop-beletristika' %}">Beletristika</a>
+          </div>
+        </div>
+      {% endif %}
+      {% if current_page == "odeca" %}
+        <div class="knjigex">
+          <div>
+            <div class="knjige_dugme">Odeća</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="{% url 'shop-odeca-muska' %}">Muška</a>
+            <a href="{% url 'shop-odeca-zenska' %}">Zenska</a>
+          </div>
+        </div>
+      {% elif current_page != "odeca" %}
+        <div class="knjige">
+          <div>
+            <div class="knjige_dugme">Odeća</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="{% url 'shop-odeca-muska' %}">Muška</a>
+            <a href="{% url 'shop-odeca-zenska' %}">Zenska</a>
+          </div>
+        </div>
+      {% endif %}
+      {% if current_page == "obuca" %}
+        <div class="knjigex">
+          <div>
+            <div class="knjige_dugme">Obuća</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="{% url 'shop-obuca-muska' %}">Muška</a>
+            <a href="{% url 'shop-obuca-zenska' %}">Zenska</a>
+          </div>
+        </div>
+      {% elif current_page != "obuca" %}
+        <div class="knjige">
+          <div>
+            <div class="knjige_dugme">Obuća</div>
+            <img src="{% static 'Sarklo\caret-down.png' %}" style="display: block; padding: 10px 2px; width: 10px; height: 8px;"/>
+          </div>
+          <div class="knjige_linkovi">
+            <a href="{% url 'shop-obuca-muska' %}">Muška</a>
+            <a href="{% url 'shop-obuca-zenska' %}">Zenska</a>
+          </div>
+        </div>
+      {% endif %}
+    
     {% if current_page == 'tehnika' %}
         <div class="knjigex">
-          <a href='#'>Tehnika</a>
+          <a href='{% url "shop-tehnika" %}' style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Tehnika</a>
         </div>
     {% elif current_page != 'tehnika' %}
         <div class="knjige">
-          <a href='#'>Tehnika</a>
+          <a href='{% url "shop-tehnika" %}' >Tehnika</a>
         </div>
     {% endif %}
-    <div class="knjige">
-      <a href="#">Igračke</a>
-    </div>
-    <div class="knjige">
-      <a href="/">Rukotvorine</a>
-    </div>
-    <div class="knjige">
-      <a href="/komentari">Komentari</a>
-    </div>
+    {% if current_page == 'igracke' %}
+        <div class="knjigex">
+            <a href="{% url 'shop-igracke' %}" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Igračke</a>
+        </div>
+    {% elif current_page != 'igracke' %}
+        <div class="knjige">
+            <a href="{% url 'shop-igracke' %}">Igračke</a>
+        </div>
+    {% endif %}
+    {% if current_page == 'rukotvorine' %}
+        <div class="knjigex">
+          <a href="{% url 'shop-rukotvorine' %}" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Rukotvorine</a>
+        </div>
+    {% elif current_page != 'rukotvorine' %}
+        <div class="knjige">
+          <a href="{% url 'shop-rukotvorine' %}">Rukotvorine</a>
+        </div>
+    {% endif %}
+    {% if current_page == "komentar" %}
+        <div class="knjigex">
+          <a href="{% url 'shop-komentari' %}" style="display: block; text-decoration: none; font-size: 13pt; padding: 4px 6px; background-color: inherit; font-family: inherit; margin: 0px; color: purple;">Komentari</a>
+        </div>
+    {% elif current_page != "komentari" %}
+        <div class="knjige">
+          <a href="{% url 'shop-komentari' %}">Komentari</a>
+        </div>
+    {% endif %}
     <div style=" float:right; margin-right:50px; margin-top:10px; margin-bottom: 10px;">
         <form method="GET" action="">
             <input id="search-field" type="text" name="q">

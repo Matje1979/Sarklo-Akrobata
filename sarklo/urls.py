@@ -9,10 +9,11 @@ urlpatterns = [
     path('delikates/', views.deli, name="shop-delikates"),
     path('skolske/', views.skolske, name="shop-skolske"),
     path('beletristika/', views.beletristika, name="shop-beletristika"),
-    path('komentari/', views.comments, name="shop-comments"),
     path('postavi_oglas/', views.create_oglas, name="shop-add-oglas"),
     path('odeca_zenska/', views.odeca_zenska, name="shop-odeca-zenska"),
     path('odeca_muska/', views.odeca_muska, name="shop-odeca-muska"),
+    path('obuca_zenska/', views.obuca_zenska, name="shop-obuca-zenska"),
+    path('obuca_muska/', views.obuca_muska, name="shop-obuca-muska"),
     path('osn_1_razred/', views.osn_1_razred, name="osn_1_razred"),
     path('osn_2_razred/', views.osn_2_razred, name="osn_2_razred"),
     path('osn_3_razred/', views.osn_3_razred, name="osn_3_razred"),
@@ -25,5 +26,8 @@ urlpatterns = [
     path('sred_2_razred/', views.sred_2_razred, name="sred_2_razred"),
     path('sred_3_razred/', views.sred_3_razred, name="sred_3_razred"),
     path('sred_4_razred/', views.sred_4_razred, name="sred_4_razred"),
-
+    path('tehnika/', views.tehnika, name="shop-tehnika"),
+    path('rukotvorine/', views.rukotvorine, name="shop-rukotvorine"),
+    path('igracke/', views.igracke, name="shop-igracke"),
+    path('komentari/', views.komentari, name="shop-komentari"),
 ]

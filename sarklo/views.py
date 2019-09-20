@@ -68,7 +68,8 @@ def skolske(request):
             paginator = Paginator(query_list, 6)
             page = request.GET.get('page')
             query_list = paginator.get_page(page)
-            context = {'oglasi': query_list, 'title': 'skolske knjige','style': 'sarklo\skolske.css' }
+            current_page = 'knjige'
+            context = {'oglasi': query_list, 'title': 'skolske knjige','style': 'sarklo\skolske.css', 'current_page': current_page}
             return render(request, "sarklo/skolske.html", context)
             
     
@@ -87,7 +88,7 @@ def beletristika(request):
             
         else:
             query_list = Oglas.objects.filter(kategorija = 'KO')
-            context = {'oglasi': query_list, 'title': 'beletristika','style': 'sarklo\skolske.css' }
+            context = {'oglasi': query_list, 'title': 'beletristika','style': 'sarklo\skolske.css', 'current_page': current_page}
             return render(request, "sarklo/beletristika.html", context)
             
 def odeca_zenska(request):
@@ -105,7 +106,15 @@ def odeca_zenska(request):
             
         else:
             query_list = Oglas.objects.filter(kategorija = 'OZ')
-            context = {'oglasi': query_list }
+            paginator = Paginator(query_list, 6)
+            page = request.GET.get('page')
+            query_list = paginator.get_page(page)
+            print (query_list)
+            current_page = 'odeca'
+            print (current_page)
+            context = {'oglasi': query_list, 'current_page': current_page}
+            print (context)
+    
             return render(request, "sarklo/odeca_zenska.html", context)
             
 def odeca_muska(request):
@@ -123,8 +132,56 @@ def odeca_muska(request):
             
         else:
             query_list = Oglas.objects.filter(kategorija = 'OM')
-            context = {'oglasi': query_list }
+            paginator = Paginator(query_list, 6)
+            page = request.GET.get('page')
+            query_list = paginator.get_page(page)
+            current_page = 'odeca'
+            context = {'oglasi': query_list, 'current_page': current_page }
             return render(request, "sarklo/odeca_muska.html", context)
+            
+def obuca_zenska(request):
+   
+        queryset_list = Oglas.objects.all().order_by('-date')
+        query = request.GET.get('q')
+        
+        if query:
+            queryset_list = queryset_list.filter(naslov = query)
+            if queryset_list:
+                 context = {'oglasi': queryset_list}
+                 return render(request, "sarklo/rezultati_pretrage.html", context)
+            else:
+                return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+            
+        else:
+            query_list = Oglas.objects.filter(kategorija = 'BZ')
+            paginator = Paginator(query_list, 6)
+            page = request.GET.get('page')
+            query_list = paginator.get_page(page)
+            current_page = 'obuca'
+            context = {'oglasi': query_list, 'current_page': current_page }
+            return render(request, "sarklo/obuca_zenska.html", context)
+
+def obuca_muska(request):
+   
+        queryset_list = Oglas.objects.all().order_by('-date')
+        query = request.GET.get('q')
+        
+        if query:
+            queryset_list = queryset_list.filter(naslov = query)
+            if queryset_list:
+                 context = {'oglasi': queryset_list}
+                 return render(request, "sarklo/rezultati_pretrage.html", context)
+            else:
+                return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+            
+        else:
+            query_list = Oglas.objects.filter(kategorija = 'BM')
+            paginator = Paginator(query_list, 6)
+            page = request.GET.get('page')
+            query_list = paginator.get_page(page)
+            current_page = 'obuca'
+            context = {'oglasi': query_list, 'current_page': current_page }
+            return render(request, "sarklo/obuca_muska.html", context)
             
 def tehnika(request):
     queryset_list = Oglas.objects.all().order_by('-date')
@@ -139,9 +196,71 @@ def tehnika(request):
             return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
     else:
         query_list = Oglas.objects.filter(kategorija = 'TE')
+        paginator = Paginator(query_list, 6)
+        page = request.GET.get('page')
+        query_list = paginator.get_page(page)
         current_page = 'tehnika'
         context = {'oglasi': query_list, 'current_page': current_page }
-        return render(request, "sarklo/odeca_muska.html", context)
+        return render(request, "sarklo/tehnika.html", context)
+
+def rukotvorine(request):
+    queryset_list = Oglas.objects.all().order_by('-date')
+    query = request.GET.get('q')
+    
+    if query:
+        queryset_list = queryset_list.filter(naslov = query)
+        if queryset_list:
+             context = {'oglasi': queryset_list}
+             return render(request, "sarklo/rezultati_pretrage.html", context)
+        else:
+            return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+    else:
+        query_list = Oglas.objects.filter(kategorija = 'RK')
+        paginator = Paginator(query_list, 6)
+        page = request.GET.get('page')
+        query_list = paginator.get_page(page)
+        current_page = 'rukotvorine'
+        context = {'oglasi': query_list, 'current_page': current_page }
+        return render(request, "sarklo/rukotvorine.html", context)
+        
+def igracke(request):
+    queryset_list = Oglas.objects.all().order_by('-date')
+    query = request.GET.get('q')
+    
+    if query:
+        queryset_list = queryset_list.filter(naslov = query)
+        if queryset_list:
+             context = {'oglasi': queryset_list}
+             return render(request, "sarklo/rezultati_pretrage.html", context)
+        else:
+            return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+    else:
+        query_list = Oglas.objects.filter(kategorija = 'IG')
+        paginator = Paginator(query_list, 6)
+        page = request.GET.get('page')
+        query_list = paginator.get_page(page)
+        current_page = 'igracke'
+        context = {'oglasi': query_list, 'current_page': current_page }
+        return render(request, "sarklo/igracke.html", context)
+
+def komentari(request):
+    current_page = 'komentar'
+    queryset_list = Oglas.objects.all().order_by('-date')
+    query = request.GET.get('q')
+    
+    if query:
+        queryset_list = queryset_list.filter(naslov = query)
+        if queryset_list:
+             context = {'oglasi': queryset_list}
+             return render(request, "sarklo/rezultati_pretrage.html", context)
+        else:
+            return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
+    else:
+        query_list = Post.objects.all()
+        current_page = 'komentar'
+        print(current_page)
+        context = {'posts': query_list, 'current_page': current_page }
+        return render(request, "sarklo/komentari.html", context)
 
 def osn_1_razred(request):
         query_list = Oglas.objects.filter(kategorija = 'KS')
