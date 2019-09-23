@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 from django.shortcuts import render, redirect
 from .models import Post, Oglas
-from .forms import OglasCreateForm
+from .forms import OglasCreateForm, PostCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -256,11 +256,23 @@ def komentari(request):
         else:
             return HttpResponse('<h2>Nista nije pronadjeno.</h2>')
     else:
-        query_list = Post.objects.all()
-        current_page = 'komentar'
-        print(current_page)
-        context = {'posts': query_list, 'current_page': current_page }
-        return render(request, "sarklo/komentari.html", context)
+        if request.method == "POST":
+            form = PostCreateForm(request.POST)
+            if form.is_valid():
+                obj = form.save(commit = False)
+                obj.autor = request.user
+                obj.save()
+                messages.success(request, f"Hvala vam sto ste ostavili komentar! Komentar ce biti vidljiv cim ga nas moderator odobri.")
+                queryset_list = Post.objects.all().order_by('-date_posted')
+                context = {'posts': queryset_list, 'current_page': current_page}
+                return render(request, "sarklo/komentari.html", context)
+        else:
+            query_list = Post.objects.all().order_by('-date_posted')
+            current_page = 'komentar'
+            print(current_page)
+            form = PostCreateForm()
+            context = {'posts': query_list, 'current_page': current_page, 'form': form }
+            return render(request, "sarklo/komentari.html", context)
 
 def osn_1_razred(request):
         query_list = Oglas.objects.filter(kategorija = 'KS')

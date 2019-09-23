@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Oglas
+from .models import Oglas, Post
 
 class OglasCreateForm(forms.ModelForm):
     
@@ -19,3 +19,12 @@ class OglasCreateForm(forms.ModelForm):
     class Meta:
         model = Oglas
         fields = ['slika', 'naslov', 'stanje', 'cena', 'opis']
+
+#post = komentar
+class PostCreateForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea)
+    
+    class Meta:
+        model = Post
+        fields = ['content']
+    

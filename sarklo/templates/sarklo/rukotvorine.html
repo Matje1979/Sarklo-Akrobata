@@ -3,7 +3,7 @@
 {% block content %}
 
     <div style="display:inline-block; width: 82%; margin-left: 35px;">
-        <h2 style="width: 85%; display: inline-block; position: relative; left: 45px; top: 15px; color: purple; text-align: center; font-family: 'Work Sans', sans-serif;">Rukotvorine:</h2><br><br>
+        <h2 style="width: 85%; display: inline-block; position: relative; left: 45px; top: 15px; color: purple; text-align: center; font-family: 'Work Sans', sans-serif;">Rukotvorine:</h2><br><br><br>
     <!--<div style=" margin-left: 20px; border: 1px solid black; width:%; overflow: hidden;">-->
         {% for oglas in oglasi %}
             <a href="oglas/{{ oglas.id }}"><div style="width: 320px; height: 470px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
@@ -20,7 +20,7 @@
             </div></a>
         {% endfor %}
     </div>
-    <div style="text-align: center">
+    <div style="text-align: center;">
         {% if oglasi.has_previous %}
             <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Prva strana</a>
             <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 2px; padding: 2px">Prethodna strana</a>

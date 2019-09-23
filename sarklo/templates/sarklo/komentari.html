@@ -2,15 +2,36 @@
 {% load static %}
 
 {% block content %} 
-<div style="width=30%; text-align: center; margin: auto auto;">
 
+<div style="position: relative; left: 40px; float: left; box-sizing: border-box; width: 80%; margin: auto auto; margin-top: 30px; text-align: center;">
 {% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <hr>{{ post.author }}</hr>
-    <p>{{ post.date_posted }}</p>
+    <div style="box-sizing: border-box; width: 50%; margin: auto auto; border: 1px dotted black; margin-top: 30px; text-align: center;">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <p>{{ post.autor }}</p>
+        <p>{{ post.date_posted }}</p>
+    </div>
 {% endfor %}
+{% if messages %}
+    {{ messages }}
+{% endif %}
+{% if user.is_authenticated %}
+    <div class="koment">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <button type="submit">Novi komentar</button>
+            </div>
+        </form>
+    </div>
+{% else %}
+    <p>Da biste ostavili komentar morate se <a href="{% url 'login' %}">prijaviti.</a></p>
+
+{% endif %}
 </div>
+
+
 {% endblock %}  
 
 

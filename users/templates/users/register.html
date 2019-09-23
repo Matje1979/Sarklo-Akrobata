@@ -1,0 +1,21 @@
+{% extends "sarklo/layout.html" %}
+{% block content %}
+    <div style="position: relative; width: 70%; margin-top: 50px; left: 30px;">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Uclanite se!</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div>
+                <button type="submit">Uclanite se</button>
+            </div>
+        </form>
+        <div>
+            <small>
+                Vec imate nalog?<a href="#">Ulogujte se!</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
+
