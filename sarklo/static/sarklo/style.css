@@ -163,12 +163,15 @@ header {
 .knjigex:hover .knjige_linkovi {
     display: block;
 }
+.njige:hover .knjige_linkovi {
+    display: block;
+}
 
 .kontakt {
     background-color: #ddd;
     margin: 5px;
     text-align: center;
-    width: 120px;
+    width: 8%;
     position: absolute;
     left: 50px;
     border: 1px doted black;
@@ -276,5 +279,50 @@ ul.razredi li {
 .koment {
     margin-top:  100px;
 }
+.side {
+    clear: left; 
+    border-color: blue; 
+    height: 1600px; 
+    width: 15%; 
+    float:left; 
+    background-color: gray;
+}
+
+.vesti {
+    list-style: none; margin-top: 30px;
+}
+.vesti li {
+    border: 1px dotted white; 
+    border-radius: 3px; 
+    padding: 5px 0px; 
+    position: relative; 
+    right: 20px;
+    color: purple; 
+    font: times new roman; 
+    font-size: 14pt; 
+    text-align:center;
+}
+.vesti li:hover {
+    background-color: purple;
+}
+
+.vesti li:hover a {
+    color: white;
+}
+#cart {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    color: blue;
+}
+#icon {
+    position: relative;
+    padding: auto auto;
+div#footer {
+    clear:both; 
+    bottom: 0;
+}
+    
     
     

@@ -39,6 +39,7 @@
             <div class="odjava">
                 <p><a href="{% url 'logout' %}">Odjavite se</a></p>
             </div>
+            <img id="cart" src="{% static 'sarklo/cart.png' %}"/>
         {% else %}
             <div class="prijava">
                 <p><a href="{% url 'login' %}">Prijavite se</a></p>
@@ -171,9 +172,9 @@
         </form>
     </div>
   </div>
-  <div style="clear: left; border-color: blue; height: 1600px; width: 15%; float:left; background-color: gray;">
-    <ul style="list-style: none; margin-top: 30px;">
-      <li style="border: 1px dotted white; border-radius: 3px; padding: 5px 0px; position: relative; right: 20px; color: purple; font: times new roman; font-size: 14pt; text-align:center;"><a href="" style="text-decoration: none;">Vesti</a></li><br>
+  <div class="side">
+    <ul class="vesti">
+      <li><a href="" style="text-decoration: none;">Vesti</a></li><br>
       <!--<li class="panel" style="border: 1px dotted white; position: relative; right: 30px; color: purple; font: cambria; font-size: 14pt; text-align:center;"><a href="/postavi_oglas" style=" text-decoration: none;">Postavi oglas</a></li><br><br>-->
       <li style="border: 1px dotted white; border-radius: 3px; padding: 5px 0px; position: relative; right: 20px; color: purple; font: cambria; font-size: 14pt; text-align:center;"><img src="{% static 'sarklo/heart_icon.png' %}" style="position: relative; right: 10px; width: 13px; height: 13px; margin-right: 5px;"/><a href="" style="text-decoration: none; text-align: center; margin-right: 20px;">Doniraj</a></li>
     </ul><br>
@@ -199,9 +200,12 @@
    {% block content %} {% endblock content %}
   
   
-  <!<footer style="position: relative; top: 300px; border: 1px dotted; black; background-color: #ddd; width: 80%; height: 100px;">
-      
-  <!</footer>
+  <div style="clear:both;">
+      <div id="icon">
+          Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 
+          from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+  </div>
   
 </body>
 
