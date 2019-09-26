@@ -6,18 +6,23 @@
         <h2 style="width: 85%; display: inline-block; position: relative; left: 25px; top: 20px; color: purple; text-align: center;">Najnovije u ponudi:</h2><br><br><br>
     <!--<div style=" margin-left: 20px; border: 1px solid black; width:%; overflow: hidden;">-->
         {% for oglas in oglasi %}
-            <a href="oglas/{{ oglas.id }}"><div style="width: 320px; height: 470px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
-                {% if oglas.slika %}
-                    <div style="width: 320px; height: 300px;">
-                        <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
-                    </div>
-                {% endif %}
-                <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
-                <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
-                <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
-                <p style="margin-left: 10px;">{{ oglas.opis }}</p>
-                
-            </div></a>
+            {% if oglas == first %}
+                <h5>Aco legendo!</h5>
+            {% else %}
+                <div class="adBox">
+                    <a href="oglas/{{ oglas.id }}"><div style="width: 320px; height: 470px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
+                        {% if oglas.slika %}
+                            <div style="width: 320px; height: 300px;">
+                                <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
+                            </div>
+                        {% endif %}
+                        <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+                        <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+                        <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+                        <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+                    </div></a>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
     <div style="text-align: center">

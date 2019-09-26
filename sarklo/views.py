@@ -34,8 +34,9 @@ def index(request):
                 page = request.GET.get('page')
                 oglasi = paginator.get_page(page)
                 current_page = 'index'
+                first_page = Oglas.objects.first()
             
-                context = {'oglasi': oglasi, 'current_page': current_page}
+                context = {'oglasi': oglasi, 'current_page': current_page, 'first': first_page}
                 
                 return render(request, "sarklo/index.html", context)
     return render(request, "sarklo/index.html")
@@ -220,7 +221,7 @@ def rukotvorine(request):
         page = request.GET.get('page')
         query_list = paginator.get_page(page)
         current_page = 'rukotvorine'
-        context = {'oglasi': query_list, 'current_page': current_page }
+        context = {'oglasi': query_list, 'current_page': current_page, 'first_add': 'first_add' }
         return render(request, "sarklo/rukotvorine.html", context)
         
 def igracke(request):

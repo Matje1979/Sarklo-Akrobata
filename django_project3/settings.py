@@ -129,3 +129,12 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'shop-index'
 
 LOGIN_URL = 'login'
+
+#code bellow is for app to send emails.EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+#The following 2 lines capture app's username and password(stored in envornmental variables)
+EMAIL_HOST_USER = os.environ.get('Email_user')
+EMAIL_HOST_PASSWORD = os.environ.get('App_pass')
+
