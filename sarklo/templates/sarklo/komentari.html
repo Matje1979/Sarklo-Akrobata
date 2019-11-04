@@ -3,9 +3,9 @@
 
 {% block content %} 
 
-<div style="position: relative; left: 40px; float: left; box-sizing: border-box; width: 80%; margin: auto auto; margin-top: 30px; text-align: center;">
+<div style="position: relative; left: 40px; float: left; box-sizing: border-box; width: 80%; margin: auto auto; margin-top: 30px; text-align: center; background-color:#FAFAFA;">
 {% for post in posts %}
-    <div style="box-sizing: border-box; width: 50%; margin: auto auto; border: 1px dotted black; margin-top: 30px; text-align: center;">
+    <div style="box-sizing: border-box; width: 60%;border: 1px solid grey; border-radius: 5px; margin: auto auto; margin-top: 30px; text-align: center; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding: 10px;">
         <h2>{{ post.title }}</h2>
         <p>{{ post.content }}</p>
         <p>{{ post.autor }}</p>
@@ -29,7 +29,27 @@
     <p>Da biste ostavili komentar morate se <a href="{% url 'login' %}?next={{ request.path }}">prijaviti.</a></p>
 
 {% endif %}
+    <div class="pagination" style="text-align: center; width: 80%; padding: 50px; margin: auto auto;">
+        {% if posts.has_previous %}
+            <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Prva strana</a>
+            <a href="?page={{ posts.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 2px; padding: 2px">Prethodna strana</a>
+        {% endif %}
+            
+        {% for num in posts.paginator.page_range %}
+            {% if posts.number == num %}
+                <strong style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">{{ num }}</strong>
+            {% elif num > posts.number|add:'-3' and posts.number|add:'3' > num %}
+                {{ num }}
+            {% endif %}
+        {% endfor %}
+        {% if posts.has_next %}
+            
+            <a href="?page={{ posts.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">Sledeca strana</a>
+            <a href="?page={{ posts.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">Poslednja strana</a>
+        {% endif %}
+    </div>
 </div>
+
 
 
 {% endblock %}  

@@ -89,6 +89,7 @@ def beletristika(request):
             
         else:
             query_list = Oglas.objects.filter(kategorija = 'KO')
+            current_page = 'knjige'
             context = {'oglasi': query_list, 'title': 'beletristika','style': 'sarklo\skolske.css', 'current_page': current_page}
             return render(request, "sarklo/beletristika.html", context)
             
@@ -271,6 +272,9 @@ def komentari(request):
             query_list = Post.objects.all().order_by('-date_posted')
             current_page = 'komentar'
             print(current_page)
+            paginator = Paginator(query_list, 6)
+            page = request.GET.get('page')
+            query_list = paginator.get_page(page)
             form = PostCreateForm()
             context = {'posts': query_list, 'current_page': current_page, 'form': form }
             return render(request, "sarklo/komentari.html", context)

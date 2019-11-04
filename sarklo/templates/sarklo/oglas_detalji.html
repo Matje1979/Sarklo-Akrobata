@@ -2,16 +2,23 @@
 {% load static %}
 {% block content %}
         
-    <div style="width: 600px; height: 700px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 75px; margin-bottom: 50px; margin-top: 80px;">
-        {% if oglas.slika %}
+    <div style="width: 70%; height: 900px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 75px; margin-bottom: 50px; margin-top: 80px;">
+        <div class="container">
             <div style="width: 320px; height: 300px;">
                 <img src='{{ oglas.slika.url }}' style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
             </div>
-        {% endif %}
-        <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
-        <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
-        <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
-        <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+            <div style="position: relative; left: 40px;">
+                <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
+                <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
+                <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+                <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+            </div>
+            <div style="width: 50%; margin: 0 auto;">
+                <form method="POST">
+                    <button style="width: 60%; height 15%; background-color: pink; padding: 5px;" type="submit">Stavi u korpu</button>
+                </form>
+            </div>
+        </div>
     </div>
         
 {% endblock content %}

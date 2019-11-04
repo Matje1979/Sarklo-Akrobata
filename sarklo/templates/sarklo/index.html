@@ -2,46 +2,58 @@
 {% load static %}
 {% block content %}
 
-    <div style="display:inline-block; width: 82%; margin-left: 35px;">
+    <div style="display:inline-block; width: 82%; margin-left: 35px; background-color: #FAFAFA;">
         <h2 style="width: 85%; display: inline-block; position: relative; left: 25px; top: 20px; color: purple; text-align: center;">Najnovije u ponudi:</h2><br><br><br>
     <!--<div style=" margin-left: 20px; border: 1px solid black; width:%; overflow: hidden;">-->
         {% for oglas in oglasi %}
-            {% if oglas == first %}
-                <h5>Aco legendo!</h5>
-            {% else %}
-                <div class="adBox">
-                    <a href="oglas/{{ oglas.id }}"><div style="width: 320px; height: 470px; border: 1px solid black; float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
+            {% if oglas.stanje == 'novo' %}
+                 <div class="adBox">
+                    <a href="oglas/{{ oglas.id }}"><div class="oglas" style="width: 320px; height: 500px; float: left; border: 1px solid grey; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
                         {% if oglas.slika %}
-                            <div style="width: 320px; height: 300px;">
+                            <div style="width: 320px; height: 310px;">
                                 <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
                             </div>
                         {% endif %}
-                        <p style="margin-left: 10px;"><strong>{{ oglas.naslov }}</strong></p>
-                        <p style="margin-left: 10px;">stanje: {{ oglas.stanje }}</p>
-                        <p style="margin-left: 10px;">cena: {{ oglas.cena }}</p>
+                        <p style="margin-left: 10px;font-size: 14pt;"><strong>{{ oglas.naslov }}</strong></p>
+                        <p id="novo" style="color: purple; margin-left: 10px; font-size:14pt;">stanje:<strong>{{ oglas.stanje }}!</strong></p>
+                        <p style="margin-left: 10px; font-size: 14pt;">cena(din): {{ oglas.cena }}</p>
+                        <p style="margin-left: 10px;">{{ oglas.opis }}</p>
+                    </div></a>
+                </div>
+            {% else %}
+                <div class="adBox">
+                    <a href="oglas/{{ oglas.id }}"><div class="oglas" style="width: 320px; height: 500px; float: left; border: 1px solid grey; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 50px; margin-bottom: 50px;">
+                        {% if oglas.slika %}
+                            <div style="width: 320px; height: 310px;">
+                                <img src="{{ oglas.slika.url }}" style="display:block; margin-top: 10px; margin-right: auto; margin-left: auto;">
+                            </div>
+                        {% endif %}
+                        <p style="margin-left: 10px; font-size: 14pt;"><strong>{{ oglas.naslov }}</strong></p>
+                        <p style="margin-left: 10px;font-size: 14pt">stanje: {{ oglas.stanje }}</p>
+                        <p style="margin-left: 10px; font-size: 14pt">cena(din): {{ oglas.cena }}</p>
                         <p style="margin-left: 10px;">{{ oglas.opis }}</p>
                     </div></a>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
-    <div style="text-align: center">
+    <div class="pagination" style="text-align: center">
         {% if oglasi.has_previous %}
             <a href="?page=1" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Prva strana</a>
-            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 2px; padding: 2px">Prethodna strana</a>
+            <a href="?page={{ oglasi.previous_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 2px; padding: 2px">Prethodna strana</a>
         {% endif %}
             
         {% for num in oglasi.paginator.page_range %}
             {% if oglasi.number == num %}
-                <strong style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">{{ num }}</strong>
+                <strong style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">{{ num }}</strong>
             {% elif num > oglasi.number|add:'-3' and oglas.number|add:'3' > num %}
                 {{ num }}
             {% endif %}
         {% endfor %}
         {% if oglasi.has_next %}
             
-            <a href="?page={{ oglasi.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Sledeca strana</a>
-            <a href="?page={{ oglasi.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px solid blue; border-radius: 3px; padding: 2px">Poslednja strana</a>
+            <a href="?page={{ oglasi.next_page_number }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">Sledeća strana</a>
+            <a href="?page={{ oglasi.paginator.num_pages }}" style="text-decoration: none; font-size: 14pt; border:1px dotted blue; border-radius: 3px; padding: 2px">Poslednja strana</a>
         {% endif %}
     </div>
     
