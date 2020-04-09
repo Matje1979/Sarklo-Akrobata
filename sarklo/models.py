@@ -60,3 +60,8 @@ class Oglas(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.slika.path)
+
+class Image(models.Model):
+    img = models.ImageField(default=None)
+    oglas = models.ForeignKey(Oglas, on_delete=models.CASCADE)
+    
